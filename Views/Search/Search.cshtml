@@ -1,0 +1,79 @@
+﻿
+    <div class="span6">
+        <h2>Search Result</h2>
+    </div>
+    <div class="span9"  >
+         <h6> SEARCH BY: </h6>
+            
+            <select style="width:50%" id="search">
+                <option > Tittle </option>
+                <option > Price </option>
+               
+            </select>
+        <div id="view">
+            <table id=table1>
+                </table>
+        </div>
+        <div>
+            <table id=table>
+                </table>
+            
+        </div>
+         <script>
+             $(document).ready(function () {
+                 $('#search').change(function ()
+                 {
+                     value = $('#search').val();
+                     $('#table1 tr').remove(); 
+                     $('#table tr').remove();
+                     //search through title
+                     if (value == "Tittle")
+                     {
+                         $('#table1').append('<tr><td>@Html.Label("Title")</td><td><input type=text id=tittle  /></td><td><Button id=but>Search</Button></td></tr>');
+                         $('#but').click(function ()
+                         {
+                             tittle = $('#tittle').val();
+                             $.getJSON("../Product/getProductDetails?tittle=" + tittle, function (data) {
+
+                                 $('#table tr').remove();
+                                 $.each(data, function (i, item)
+                                 {
+                                     $('#table').append('<tr class="span3"><td><div class="thumbnail"> <img src="/Files/' + item.file + '" alt="Sample Image" width="100" height="100">  <div class="caption"><h4>' + item.title + '</h4><table><tr><td><form method="Post" action="/Home/Details"><input type=Hidden name="tittle" value="' + item.title + '" /><input type=submit class="btn btn-info" value="Details"/></form></td> <td></td></tr> </table></div></div></td></tr>  ');
+
+                                 });
+
+                             });
+                         });
+                     }
+                       //  search through price
+                     else if (value == "Price")
+                     {
+                         $('#table1').append('<tr><td>@Html.Label("Start Range")</td><td><input type=text id=start  /></td></tr>');
+                         $('#table1').append('<tr><td>@Html.Label("End Range")</td><td><input type=text id=end  /></td><td><Button id=but>Search</Button></td></tr>');
+                         $('#but').click(function () {
+                             start = $('#start').val();
+                             end = $('#end').val();
+                             $.getJSON("../Product/getProductDetailsByRange?range="+start+" "+end, function (data) {
+
+                                 $('#table tr').remove();
+                                    $.each(data, function (i, item) {
+                                    $('#table').append('<tr class="span3"><td><div class="thumbnail"> <img src="/Files/' + item.file + '" alt="Sample Image" width="100" height="100">  <div class="caption"><h4>' + item.title + '</h4><table><tr><td><form method="Post" action="/Home/Details"><input type=Hidden name="tittle" value="' + item.title + '" /><input type=submit class="btn btn-info" value="Details"/></form></td> <td></td></tr> </table></div></div></td></tr>  ');
+
+                                 });
+
+                             });
+                         });
+                     }
+                         
+                    
+                    
+                 });
+             });
+                </script>
+
+
+    </div>
+
+   
+  
+   

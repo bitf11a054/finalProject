@@ -1,0 +1,52 @@
+﻿@model EADWebProject.Models.Ad
+
+<h2>Update</h2>
+ <h1>Admin Panel: Edit Ads</h1>
+         
+             <form method="post" action="/Admin/editProduct">
+        <table class="table">
+          
+            <tr><td>Id</td>
+                <td><input type="text" name="Id" value="@ViewBag.X.Id" readonly="true"/></td> 
+           
+                   
+            <tr>
+                <td> Title</td>
+                <td> <input type="text"  name="title" value="@ViewBag.X.title" /></td>
+            </tr>
+            <tr>
+                <td> Category</td>
+                  <td> <input type="text"  name="category" value="@ViewBag.X.category" /></td>
+            </tr>
+            <tr>
+                <td> Subtype</td>
+                  <td> <input type="text"  name="subtype"  value="@ViewBag.X.subtype" /></td>
+            </tr>
+
+             <tr>
+                <td> Description</td>
+                   <td> <input type="text"  name="description" value="@ViewBag.X.description" /></td>
+            </tr>
+
+            <tr>
+                <td> Image</td>
+                 <td> <input type="text"  name="file" value="@ViewBag.X.file" /></td>
+            </tr>
+
+             <tr>
+                <td>Price</td>
+                <td> <input type="text"  name="price" value="@ViewBag.X.price_" /></td>
+            </tr>
+
+             <tr>
+                <td> User ID</td>
+                 <td> <input type="text"  name="userid" value="@ViewBag.X.userid" /></td>
+            </tr>
+
+            <tr>
+                <td> </td>
+                <td> <input type="submit" value="Edit Ad" class="btn btn-success"/></td>
+            </tr>
+                
+        </table>
+         </form>

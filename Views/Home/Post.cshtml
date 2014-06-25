@@ -1,0 +1,73 @@
+﻿@model EADWebProject.Models.Ad
+
+@{
+    
+}
+
+<h2>Post</h2>
+   <input type="hidden" value="@Model" id="check"/>
+    <script>
+        $(document).ready(function () {
+            var v = $('#check').val();
+           // alert(v);
+            if (v == "False") {
+                alert("Item is not Added , Tittle Alrady exist");
+            }
+        });
+    </script>
+    <div class="span3">
+
+    </div>
+    <div class="well span9" >
+        <h1> Post Ad</h1>
+       
+         
+         <form method="post" action="~/Home/saveItem" enctype="multipart/form-data">  
+        <table class="table">
+            <tr>
+                <td> Category</td>
+                <td>
+                   <input type="text" name="cat"/>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td> Title</td>
+                <td> <input type="text" name="tittle"/></td>
+            </tr>
+           
+             <tr>
+                <td> Subtype</td>
+                <td> <input type="text" name="sub"/></td>
+            </tr>
+
+            <tr>
+                <td> Price</td>
+                <td> <input type="text" name="price"/></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td> <input type="text" name="des"/></td>
+            </tr>
+            <tr>
+                <td> Pictures</td>
+                <td> <input type="File" class="btn btn-success" name="image"/></td>
+            </tr>
+
+             <tr>
+                <td>User Id</td>
+                <td> <input type="text" name="id"/></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> <input type="submit" value="Post Ad" class="btn btn-success"/></td>
+            </tr>
+        </table>
+         </form>
+    </div>
+
+   
+  
+   
+

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+    Layout = "~/Views/Admin/header_footer.cshtml";
+}
+
+    <div class="span4" >
+        
+
+
+    </div>
+
+    <div class="span6" >
+
+        <h2 >Admin Login</h2>
+        <br>
+
+         @using (Html.BeginForm("checkAdmin", "Admin", FormMethod.Post))
+        {
+        <table>
+        <tr>
+        <th  ><p >Admin Name</p></th> <th><input type=text name="name"/></th>
+        </tr>
+        
+        <tr>
+        <th  ><p >Password</p></th> <th><input type=password name="password"/></th>
+        </tr>
+        <tr>
+        <th ><button class="btn btn-info" type="submit" style="margin-left:100px">Login</button></th>
+         <th><button class="btn" type="submit">Cancel</button></th>
+        </tr>
+        </table>
+         }
+
+    </div>
+  
+   

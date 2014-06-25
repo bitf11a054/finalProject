@@ -1,0 +1,52 @@
+﻿
+@model List<EADWebProject.Models.Ad>
+
+@{
+    Layout = "~/Views/Home/Menu1.cshtml";
+}
+<h2>Logged In</h2>
+
+<script>
+    var temp = $('#one').val();
+    //alert(temp);
+    if (temp == "True") {
+        
+        $('#login').hide();
+    }
+</script>
+    <div class="span9"  >
+        <ul class="thumbnails">
+            @if(Model != null)
+            {
+                foreach(var r in Model)
+                {
+            <li class="span3">
+                <div class="thumbnail">
+                    <img src="~/Files/@r.file" alt="Sample Image" style="height:200px;width:200px;">
+                    <div class="caption">
+                        <h4>@r.title</h4>
+                        <table>
+                            <tr>
+                                <td>
+                         @using (Html.BeginForm("Details", "Home", FormMethod.Post))
+                         {
+                             @Html.Hidden("tittle",@r.title);
+                            <button type="submit" class="btn btn-info"> Details</button>
+                         }  </td>
+                        
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+            </li>
+                }
+            }
+            
+            
+        </ul>
+
+
+    </div>
+  
+   
+

@@ -1,0 +1,53 @@
+﻿@model EADWebProject.Models.Ad
+
+<script>
+    @{
+       
+    }
+    
+</script>
+    <div class="span6">
+        <table>
+        <tr><td><h4>Title</h4></td><td><h4>:  @Model.title</h4></td></tr>
+        <tr><td><h4>Category</h4></td><td><h4>:  @Model.category</h4></td></tr>
+        <tr><td><h4>Subtype</h4></td><td><h4>:  @Model.subtype</h4></td></tr>   
+         <tr><td><h4>Description</h4></td><td><h4>:  @Model.description</h4></td></tr>   
+         <tr><td><h4>Price</h4></td><td><h4>:  @Model.price_</h4></td></tr>        
+        </table>
+       
+    </div>
+    <div class="span9">
+        <a href="#" class="thumbnail">
+                    <img src="~/Files/@Model.file" alt="125x125" width="300" height="300">
+         </a>
+      
+        <div id="d1" style="color:red"></div>
+        <br><br>
+        
+
+    </div>
+    
+<script>
+    function check_login(){
+        var login = document.getElementById('check1').value;
+        var quantity = document.getElementById('q1').value;
+        if (login == "False")
+        {
+            $('#d1').append('<p>*you must have to login.</p>');
+            return false;
+            
+        }
+        else
+        {
+            if (quantity.length > 0) {
+                return true;
+            }
+            else {
+                $('#d1').append('<p>*Field never be empty.</p>');
+                return false;
+            }
+            
+        }
+    }
+</script>
+ 

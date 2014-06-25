@@ -1,0 +1,49 @@
+﻿
+    <div class="span3" >
+        
+
+
+    </div>
+
+    <div class="span6" >
+
+        <h2 >Login</h2>
+        <br>
+         @using (Html.BeginForm("checkUser", "Home", FormMethod.Post))
+        {
+        <table>
+        <tr>
+        <th  ><p >User Name</p></th> <th><input type=text name="userName" id="t1"/></th>
+        </tr>
+        
+        <tr>
+        <th  ><p >Password</p></th> <th><input type=password name="password" id="t2"/></th>
+        </tr>
+        <tr>
+        <th ><button class="btn btn-info" type="submit" style="margin-left:100px" onclick="return check(this)">Login</button></th>
+         <th><button class="btn" type="button">Cancel</button></th>
+        </tr>
+        </table>
+             <div id="p1" style="color:red"></div>
+         }
+         <script>
+             function check() {
+                 var name = document.getElementById('t1').value;
+                 var password = document.getElementById('t2').value;
+                 if (name.length == 0) {
+                     $('#p1').append('*name fied is empty.');
+                     return false;
+                 }
+                 else if (password.length == 0) {
+                     $('#p1').append('*password field is empty.');
+                     return false;
+                 }
+                 else {
+                     return true;
+                 }
+             }
+            </script>
+
+    </div>
+  
+   
